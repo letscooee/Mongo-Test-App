@@ -23,7 +23,7 @@ class BookService {
         book.author = Author.load(new ObjectId(authorID))
         book.props = props
         book.publisher = Publisher.load(new ObjectId(publisherID))
-        book.save(flush: true, failOnError:true)
+        book.save(flush: true, failOnError: true)
 
         book
     }

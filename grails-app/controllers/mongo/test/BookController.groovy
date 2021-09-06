@@ -1,5 +1,6 @@
 package mongo.test
 
+import org.bson.types.ObjectId
 import org.grails.web.json.JSONObject
 
 class BookController {
@@ -8,11 +9,22 @@ class BookController {
 
     BookService bookService
 
-    def save() {
-        println "Request Data ${request.JSON}"
-        JSONObject requestData = (JSONObject) request.JSON
-        Book book = bookService.save(requestData)
+    def test1() {
+        Map data = [
+                name      : "Book 1",
+                price     : 500,
+                properties: [
+                        foo: "Bar",
+                        age: 2
+                ],
+                authorID: new ObjectId().toString()
+        ]
 
+        Book book = bookService.save(new JSONObject(data))
         respond([book: book])
+    }
+
+    def test2() {
+
     }
 }

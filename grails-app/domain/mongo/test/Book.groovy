@@ -12,5 +12,4 @@ class Book {
     Double price
     Map<String, Object> props
     Author author
-    Publisher publisher
 }
